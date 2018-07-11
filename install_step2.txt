@@ -1,0 +1,23 @@
+
+estamos trabajando con laravel 5.4
+
+lo que se instalo despues de instalar laravel fue:
+
+ve a esta pagina 
+https://github.com/cviebrock/eloquent-sluggable#installation
+
+y de acuerdo a la version de laravel instala eloquent-slugable
+esta esta definida para laravel 5.4
+
+1. composer require cviebrock/eloquent-sluggable:^4.2
+
+2. composer require "laravelcollective/html":"^5.4.0"
+
+agrega ALIASES Y PROVIDERS
+
+Cviebrock\EloquentSluggable\ServiceProvider::class,
+Collective\Html\HtmlServiceProvider::class,
+
+ 'Form' => Collective\Html\FormFacade::class,
+ 'Html' => Collective\Html\HtmlFacade::class,
+ 'View' => Illuminate\Support\Facades\View::class,-borra este solo fue un ejemplo
