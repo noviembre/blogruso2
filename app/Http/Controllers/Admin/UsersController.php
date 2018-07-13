@@ -35,6 +35,7 @@ class UsersController extends Controller
             'password'  =>  'required',
             'avatar'    =>  'nullable|image'
         ]);
+
         $user = User::add($request->all());
 
         $user->uploadAvatar($request->file('avatar'));
