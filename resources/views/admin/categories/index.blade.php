@@ -47,11 +47,9 @@
                             <tr>
                                 <td>{{$category->id}}</td>
                                 <td>{{$category->title}}</td>
-                                <td>edit</td>
+                                <td><a href="{{route('categories.edit', $category->id)}}" class="fa fa-pencil"></a> </td>
 
-                                <td>delete
-
-                                </td>
+                                <td>delete</td>
 
                             </tr>
                         @endforeach
