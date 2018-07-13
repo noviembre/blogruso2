@@ -49,7 +49,14 @@
                                 <td>{{$category->title}}</td>
                                 <td><a href="{{route('categories.edit', $category->id)}}" class="fa fa-pencil"></a> </td>
 
-                                <td>delete</td>
+                                <td>
+                                    {{Form::open(['route'=>['categories.destroy', $category->id], 'method'=>'delete'])}}
+                                    <button onclick="return confirm('are you sure?')" type="submit" class="delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+
+                                    {{Form::close()}}
+                                    </td>
 
                             </tr>
                         @endforeach
