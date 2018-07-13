@@ -55,8 +55,24 @@ class User extends Authenticatable
     public function edit($fields)
     {
         $this->fill($fields); //name,email
+
+        if ($fields['password'] != null)
+        {
+            $this->password = bcrypt($fields['password']);
+        }
+
         $this->save();
     }
+
+    public function generatePassword($password)
+    {
+        if($password != null)
+        {
+            $this->password = bcrypt($password);
+            $this->save();
+        }
+    }
+
     public function remove()
     {
         $this->removeAvatar();

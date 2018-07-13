@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('status')->default(0);
 
             $table->string('avatar')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
 
             $table->rememberToken();
 
