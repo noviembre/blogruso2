@@ -176,10 +176,14 @@ class Post extends Model
     {
         return ($this->category != null) ? $this->category->title  :   'Sin Categoria';
     }
+
     public function getTagsTitles()
     {
-        dd($this->tags);
+        return (!$this->tags->isEmpty())
+            ?   implode(', ', $this->tags->pluck('title')->all())
+            : 'Sin Etiqueta';
     }
+    
     public function getCategoryID()
     {
         return $this->category != null ? $this->category->id : null;
