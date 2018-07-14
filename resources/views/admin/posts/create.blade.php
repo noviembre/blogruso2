@@ -42,6 +42,31 @@
                         </div>
 
 
+                        <!--
+                                        
+                        fuente:
+                        laravelcollective.com/docs/5.4/html#drop-down-lists
+                        ejemplo:
+                        Generating a Drop-Down List With an Empty Placeholder
+                                        
+                                         -->
+
+                        <div class="form-group">
+                            <label>Etiquetas</label>
+
+                            {{Form::select('tags[]',
+                                $tags,
+                                null,
+                                ['class' => 'form-control select2', 'multiple'=>'multiple','data-placeholder'=>'Tagss'])
+
+                            }}
+                        </div>
+
+
+
+
+
+
 
 
 
