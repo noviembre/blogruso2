@@ -14,4 +14,7 @@ class PostsController extends Controller
         return view('admin.posts.index', ['posts'=>$posts]);
     }
 
+
+
+
 }
