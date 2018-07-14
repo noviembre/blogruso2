@@ -14,6 +14,11 @@ class PostsController extends Controller
         return view('admin.posts.index', ['posts'=>$posts]);
     }
 
+    public function create()
+    {
+        return view('admin.posts.create');
+    }
+
 
 
 
