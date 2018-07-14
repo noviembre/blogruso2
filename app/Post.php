@@ -23,7 +23,7 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function tags()
@@ -169,15 +169,16 @@ class Post extends Model
         $date = Carbon::createFromFormat('Y-m-d', $value)->format('d/m/y');
         return $date;
     }
+
+    #==== recien empieza a trrabajar este metodo
+    #==== jeje me adelante
     public function getCategoryTitle()
     {
         return ($this->category != null) ? $this->category->title  :   'Sin Categoria';
     }
     public function getTagsTitles()
     {
-        return (!$this->tags->isEmpty())
-            ?   implode(', ', $this->tags->pluck('title')->all())
-            : 'Sin Etiqueta';
+        dd($this->tags);
     }
     public function getCategoryID()
     {

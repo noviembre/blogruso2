@@ -33,6 +33,8 @@
                         <tr>
                             <th>ID</th>
                             <th>Titulo</th>
+                            <th>Categoria</th>
+                            <th>Etiquetas</th>
                             <th>Imagen</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
@@ -45,6 +47,8 @@
                             <tr>
                                 <td>{{$post->id}}</td>
                                 <td>{{$post->title}}</td>
+                                <td>{{$post->getCategoryTitle()}}</td>
+                                <td>{{$post->getTagsTitles()}}</td>
                                 <td>
                                     <img src="{{$post->getImage()}}" alt="" width="100">
                                 </td>
