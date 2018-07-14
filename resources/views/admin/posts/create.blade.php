@@ -43,13 +43,26 @@
 
 
                         <!--
-                                        
+
                         fuente:
                         laravelcollective.com/docs/5.4/html#drop-down-lists
                         ejemplo:
                         Generating a Drop-Down List With an Empty Placeholder
-                                        
+
                                          -->
+
+                        <div class="form-group">
+                            <label>Categoria</label>
+
+                            {{Form::select('category_id',
+
+                                $categories,
+                                null,
+                                ['class' => 'form-control select2'])
+                            }}
+                        </div>
+
+
 
                         <div class="form-group">
                             <label>Etiquetas</label>
@@ -63,14 +76,6 @@
                         </div>
 
 
-
-
-
-
-
-
-
-                        <!-- Date -->
                         <div class="form-group">
                             <label>fecha:</label>
 
@@ -85,11 +90,22 @@
 
 
 
+
+
                         <!-- checkbox -->
 
                         <div class="form-group">
                             <label><input type="checkbox" class="minimal" name="is_featured"></label>
                             <label>Visible</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" class="minimal" name="status">
+                            </label>
+                            <label>
+                                Activo
+                            </label>
                         </div>
 
 
