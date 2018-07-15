@@ -2,9 +2,19 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+/*
+|--------------------------------------------------------------------------
+| F R O N T E N D
+|--------------------------------------------------------------------------
+|
+| Contiene las rutas de la pagina principal del post.
+|
+|
+*/
+Route::get('/', 'HomeController@index');
+
+
 
 Route::get('/admin', 'Admin\DashboardController@index');
 
