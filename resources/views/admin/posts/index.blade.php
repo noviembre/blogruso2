@@ -36,8 +36,7 @@
                             <th>Categoria</th>
                             <th>Etiquetas</th>
                             <th>Imagen</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
+                            <th>Editar / Eliminar</th>
                         </tr>
                         </thead>
 
@@ -54,8 +53,16 @@
                                 </td>
 
                                 <td>
-                                    <a href="{{route('posts.edit', $post->id)}}" class="fa fa-pencil"></a></td>
-                                <td>
+                                    <a href="{{route('posts.edit', $post->id)}}" class="fa fa-pencil"></a>
+
+                                    {{Form::open(['route'=>['posts.destroy', $post->id], 'method'=>'delete'])}}
+                                    <button onclick="return confirm('are you sure?')" type="submit" class="delete">
+                                        <i class="fa fa-remove"></i>
+                                    </button>
+
+                                    {{Form::close()}}
+
+                                </td>
 
 
                             </tr>

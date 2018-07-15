@@ -77,12 +77,18 @@ class PostsController extends Controller
 
         $post = Post::find($id);
         $post->edit($request->all());
-        
+
         $post->uploadImage($request->file('image'));
         $post->setCategory($request->get('category_id'));
         $post->setTags($request->get('tags'));
         $post->toggleStatus($request->get('status'));
         $post->toggleFeatured($request->get('is_featured'));
+        return redirect()->route('posts.index');
+    }
+
+    public function destroy($id)
+    {
+        Post::find($id)->remove();
         return redirect()->route('posts.index');
     }
 
