@@ -52,9 +52,12 @@
                                 <td>
                                     <img src="{{$post->getImage()}}" alt="" width="100">
                                 </td>
-                                <td>Editar</td>
 
-                                <td>Eliminar</td>
+                                <td>
+                                    <a href="{{route('posts.edit', $post->id)}}" class="fa fa-pencil"></a></td>
+                                <td>
+
+
                             </tr>
                         @endforeach
                         </tbody>
