@@ -14,7 +14,7 @@ class Post extends Model
     const IS_DRAFT = 0;
     const IS_PUBLIC = 1;
 
-    protected $fillable = ['title','contenido','date'];
+    protected $fillable = ['title','contenido','date','description'];
 
     public function category()
     {
@@ -183,13 +183,16 @@ class Post extends Model
             ?   implode(', ', $this->tags->pluck('title')->all())
             : 'Sin Etiqueta';
     }
-    
+
+    # Proposito:
+    # evita problemas si hay alguna categoria vacia
     public function getCategoryID()
     {
         return $this->category != null ? $this->category->id : null;
     }
 
     #=====lo usamos para editar / la fecha del post
+    # usado en el frontend
     public function getDate()
     {
         return Carbon::createFromFormat('d/m/y', $this->date)->format('F d, Y');

@@ -38,7 +38,8 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'category_id'	=>	1,
         'user_id'	=>	1,
         'status'	=>	1,
-        'is_featured'	=>	0
+        'is_featured'	=>	0,
+        'description' => $faker->sentence,
     ];
 });
 #=====================  CATEGORY  ======================
