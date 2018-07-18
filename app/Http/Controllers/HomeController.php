@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Tag;
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,6 +29,13 @@ class HomeController extends Controller
         $tag = Tag::where('slug', $slug)->firstOrFail();
         //$posts = $tag->posts()->where('status',1)->paginate(2);
         $posts = $tag->posts()->paginate(2);
+        return view('pages.list', ['posts'  =>  $posts]);
+    }
+
+    public function category($slug)
+    {
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $posts = $category->posts()->paginate(2);
         return view('pages.list', ['posts'  =>  $posts]);
     }
 
