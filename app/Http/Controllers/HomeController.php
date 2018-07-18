@@ -14,4 +14,12 @@ class HomeController extends Controller
         $posts = Post::paginate(2);
         return view('pages.index')->with('posts', $posts);
     }
+
+
+    public function show($slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();
+        return view('pages.show', compact('post'));
+    }
+
 }

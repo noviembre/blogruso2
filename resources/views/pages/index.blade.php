@@ -14,11 +14,11 @@
                         <article class="post">
                             <div class="post-thumb">
 
-                                <a href="#">
+                                <a href="{{ route('post.show', $post->slug ) }}">
                                     <img src="{{$post->getImage()}}" alt="">
                                 </a>
 
-                                <a href="#" class="post-thumb-overlay text-center">
+                                <a href="{{ route('post.show', $post->slug ) }}" class="post-thumb-overlay text-center">
                                     <div class="text-uppercase text-center">
                                         View Post
                                     </div>
