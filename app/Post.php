@@ -223,6 +223,12 @@ class Post extends Model
     }
     #===== BUTTONS PREV, NEXT ENDS ====================================
 
+    #========= RELATED POST  =========================================
+    public function related()
+    {
+        return self::all()->except($this->id);
+    }
+
 
 
 
