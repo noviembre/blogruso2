@@ -17,6 +17,9 @@ Route::get('/', 'HomeController@index');
 #==========  POSTS + ENLACES  ===========================
 Route::get('/post/{slug}', 'HomeController@show')->name('post.show');
 
+#==========  POSTS / TAGS  ===========================
+Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
+
 
 
 Route::get('/admin', 'Admin\DashboardController@index');
