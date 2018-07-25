@@ -135,6 +135,9 @@
                 </div>
 
 
+                @include('pages._sidebar')
+
+
 
             </div>
         </div>

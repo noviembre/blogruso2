@@ -32,6 +32,10 @@ class AppServiceProvider extends ServiceProvider
                 Post::orderBy('date', 'desc')->take(2)->get());
 
 
+            #=============   ALL CATEGORIES  ==============#
+            $view->with('categories', Category::all());
+
+
         });
     }
 
