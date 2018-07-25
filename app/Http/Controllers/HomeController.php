@@ -20,7 +20,12 @@ class HomeController extends Controller
         $featuredPost = Post::where('is_featured', 1)
                         ->take(3)->pluck('id')->all();
 
-        dd($featuredPost);
+
+        #=============   RECENT POSTS  ==============#
+        $recentPosts = Post::orderBy('date', 'desc')
+            ->take(4)->pluck('id')->all();
+        dd($recentPosts);
+        
         return view('pages.index')->with('posts', $posts);
     }
 
