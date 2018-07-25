@@ -27,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
             #=============   FEATURED  ==================#
             $view->with('featuredPosts', Post::getFeaturedPosts());
 
+            #=============   RECENT POSTS  ==============#
+            $view->with('recentPosts',
+                Post::orderBy('date', 'desc')->take(2)->get());
+
 
         });
     }
