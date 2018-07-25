@@ -15,7 +15,12 @@ class HomeController extends Controller
 
         $posts = Post::paginate(2);
         $popularPost = Post::orderBy('views','desc')->take(3)->get();
-        dd($popularPost);
+
+        #=============   FEATURED  ==================#
+        $featuredPost = Post::where('is_featured', 1)
+                        ->take(3)->pluck('id')->all();
+
+        dd($featuredPost);
         return view('pages.index')->with('posts', $posts);
     }
 
