@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
             #=============   POPULAR POSTS  ===============#
             $view->with('popularPosts', Post::getPopularPosts());
 
+            #=============   FEATURED  ==================#
+            $view->with('featuredPosts', Post::getFeaturedPosts());
+
+
         });
     }
 

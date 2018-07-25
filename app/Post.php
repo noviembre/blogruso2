@@ -243,6 +243,15 @@ class Post extends Model
     }
 
 
+    #=========  FEATURED POSTS  =================================
+    public static function getFeaturedPosts()
+    {
+        return self:: where('is_featured', 1)->take(3)->get();
+
+    }
+
+
+
 
 
 
