@@ -14,6 +14,8 @@ class HomeController extends Controller
     {
 
         $posts = Post::paginate(2);
+        $popularPost = Post::orderBy('views','desc')->take(3)->get();
+        dd($popularPost);
         return view('pages.index')->with('posts', $posts);
     }
 
