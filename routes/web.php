@@ -28,6 +28,13 @@ Route::get('/register', 'AuthController@registerForm');
 
 Route::post('/register', 'AuthController@register');
 
+
+#==========  LOGIN  ===========================
+Route::get('/login','AuthController@loginForm')->name('login');
+Route::post('/login', 'AuthController@login');
+Route::get('/logout', 'AuthController@logout');
+
+
 Route::get('/admin', 'Admin\DashboardController@index');
 
 
