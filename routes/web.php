@@ -32,11 +32,27 @@ Route::post('/register', 'AuthController@register');
 #==========  LOGIN  ===========================
 Route::get('/login','AuthController@loginForm')->name('login');
 Route::post('/login', 'AuthController@login');
-Route::get('/logout', 'AuthController@logout');
+
 
 
 Route::get('/admin', 'Admin\DashboardController@index');
 
+
+
+/*
+|--------------------------------------------------------------------------
+| G R U P O   FOR LOGIN   U S E R S
+|--------------------------------------------------------------------------
+|
+| destinado solo para los usuarios que se hayan logeado
+|
+|
+*/
+Route::group(['middleware'	=>	'auth'], function(){
+
+    Route::get('/logout', 'AuthController@logout');
+
+});
 
 /*
 |--------------------------------------------------------------------------
