@@ -60,6 +60,9 @@ Route::group(['middleware'	=>	'guest'], function(){
 */
 Route::group(['middleware'	=>	'auth'], function(){
 
+    Route::get('/profile', 'ProfileController@index');
+    Route::post('/profile', 'ProfileController@store');
+
     Route::get('/logout', 'AuthController@logout');
 
 });
