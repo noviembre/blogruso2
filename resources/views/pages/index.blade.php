@@ -50,7 +50,7 @@
                                     {!! $post->description !!}
 
                                     <div class="btn-continue-reading text-center text-uppercase">
-                                        <a href="#" class="more-link">
+                                        <a href="{{route('post.show', $post->slug)}}" class="more-link">
                                             Continue Reading
                                         </a>
                                     </div>
@@ -61,7 +61,7 @@
 
                                     <span class="social-share-title pull-left text-capitalize">
 
-                                        <a href="#">Author</a>
+                                        <a href="#">{{ $post->author->name }}</a>
                                         On {{$post->getDate()}}
                                     </span>
 
