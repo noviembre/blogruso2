@@ -23,21 +23,36 @@ Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
 #==========  POSTS / CATEGORY  ===========================
 Route::get('/category/{slug}', 'HomeController@category')->name('category.show');
 
-#==========  REGISTER  ===========================
-Route::get('/register', 'AuthController@registerForm');
-
-Route::post('/register', 'AuthController@register');
 
 
-#==========  LOGIN  ===========================
-Route::get('/login','AuthController@loginForm')->name('login');
-Route::post('/login', 'AuthController@login');
+
+
 
 
 
 Route::get('/admin', 'Admin\DashboardController@index');
 
+/*
+|--------------------------------------------------------------------------
+| G R U P O   FOR   LOGIN   GUEST - INVITADOS
+|--------------------------------------------------------------------------
+|
+| destinado para cualquier usuario
+|
+|
+*/
 
+Route::group(['middleware'	=>	'guest'], function(){
+
+    #==========  REGISTER  ===========================
+    Route::get('/register', 'AuthController@registerForm');
+    Route::post('/register', 'AuthController@register');
+
+    #==========  LOGIN  ===========================
+    Route::get('/login','AuthController@loginForm')->name('login');
+    Route::post('/login', 'AuthController@login');
+
+});
 
 /*
 |--------------------------------------------------------------------------
