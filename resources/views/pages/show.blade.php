@@ -79,7 +79,7 @@
 
 
 
-                        
+
                         <!-- ==============    COMMENT STARTS  ================-->
 
                         @if(!$post->comments->isEmpty())

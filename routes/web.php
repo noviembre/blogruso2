@@ -94,6 +94,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware'=>'admin' ], f
     #==========  POSTS  ================================
     Route::resource('/posts', 'PostsController');
 
+    #==========  C O M E N T A R I O S  ===================
+    Route::get('/comments', 'CommentsController@index');
+
 
 
 
