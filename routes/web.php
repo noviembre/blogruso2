@@ -27,11 +27,6 @@ Route::get('/category/{slug}', 'HomeController@category')->name('category.show')
 
 
 
-
-
-
-Route::get('/admin', 'Admin\DashboardController@index');
-
 /*
 |--------------------------------------------------------------------------
 | G R U P O   FOR   LOGIN   GUEST - INVITADOS
