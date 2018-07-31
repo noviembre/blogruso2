@@ -257,6 +257,13 @@ class Post extends Model
     }
 
 
+    #=========  MOSTRAR COMENTARIOS EN POST DETALLES  ===========
+    public function getComments()
+    {
+        return $this->comments()->where('status', 1)->get();
+    }
+
+
 
 
 
