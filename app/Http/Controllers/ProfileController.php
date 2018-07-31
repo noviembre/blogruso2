@@ -6,14 +6,12 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use Illuminate\Validation\Rule;
-
 class ProfileController extends Controller
 {
 
     public function index()
     {
         $user = Auth::user();
-
         return view('pages.profile', ['user'	=>	$user]);
     }
 
@@ -28,7 +26,11 @@ class ProfileController extends Controller
             ],
             'avatar'	=>	'nullable|image'
         ]);
+        $user = Auth::user();
+        $user->edit($request->all());
+        $user->generatePassword($request->get('password'));
+        $user->uploadAvatar($request->file('avatar'));
 
-        echo 'ok';
+        return redirect()->back()->with('status', 'Profile was updated.');
     }
 }
