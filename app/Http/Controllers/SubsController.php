@@ -16,6 +16,8 @@ class SubsController extends Controller
 
         $subs = Subscription::add($request->get('email'));
 
+        $subs->generateToken();
+
         // https://laravel.com/docs/5.5/mail#sending-mail
         // in laravel find this code:
         // Mail::to($request->user())->send(new OrderShipped($order));

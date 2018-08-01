@@ -109,8 +109,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware'=>'admin' ], f
     Route::delete('/comments/{id}/destroy', 'CommentsController@destroy')
         ->name('comments.destroy');
 
-
-
+    #==========  ADMIN / SUBSCRIPTORES ==========
+    Route::resource('/subscribers', 'SubscribersController');
 
 
 });
