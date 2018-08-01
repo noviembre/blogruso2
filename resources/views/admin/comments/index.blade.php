@@ -49,7 +49,14 @@
                                         <a href="/admin/comments/toggle/{{$comment->id}}" class="fa fa-thumbs-o-up"></a>
                                     @endif
                                 </td>
-                                <td>Delete</td>
+                                <td>
+                                    {{Form::open(['route'=>['comments.destroy', $comment->id], 'method'=>'delete'])}}
+                                    <button onclick="return confirm('are you sure?')" type="submit" class="delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+
+                                    {{Form::close()}}
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
