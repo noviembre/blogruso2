@@ -22,11 +22,13 @@
             <span>Etiquetas</span></a>
     </li>
 
-    <li><a href="#">
+    <li><a href="/admin/comments">
             <i class="fa fa-commenting"></i>
             <span>Comentarios</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">5</small>
+                <small class="label pull-right bg-green" title="Comments with no approved">
+                  {{$CommentsCount}}
+              </small>
             </span>
         </a>
     </li>
