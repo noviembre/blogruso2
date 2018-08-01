@@ -71,6 +71,21 @@
 </nav>
 
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+
+            @if(session('notification_newsletter'))
+                <div class="alert alert-info">
+                    {{session('notification_newsletter')}}
+                </div>
+            @endif
+
+
+        </div>
+    </div>
+</div>
 
 
 @yield('content')
