@@ -27,4 +27,9 @@ class SubsController extends Controller
             ->with('notification_newsletter','Thanks for subscribing!');
     }
 
+    public function verify($token)
+    {
+        dd($token);
+    }
+
 }
