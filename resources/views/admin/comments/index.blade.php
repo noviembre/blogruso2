@@ -43,7 +43,11 @@
                                 <td>{{$comment->text}}
                                 </td>
                                 <td>
-                                    status
+                                    @if($comment->status == 1)
+                                        <a href="/admin/comments/toggle/{{$comment->id}}" class="fa fa-lock"></a>
+                                    @else
+                                        <a href="/admin/comments/toggle/{{$comment->id}}" class="fa fa-thumbs-o-up"></a>
+                                    @endif
                                 </td>
                                 <td>Delete</td>
                             </tr>

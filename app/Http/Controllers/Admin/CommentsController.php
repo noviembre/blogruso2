@@ -14,4 +14,12 @@ class CommentsController extends Controller
         $comments = Comment::all();
         return view('admin.comments.index', ['comments' =>	$comments]);
     }
+
+
+    public function toggle($id)
+    {
+        $comment = Comment::find($id);
+        $comment->toggleStatus();
+        return redirect()->back();
+    }
 }
