@@ -29,7 +29,11 @@ class SubsController extends Controller
 
     public function verify($token)
     {
-        dd($token);
+        $subs = Subscriptikon::where('token', $token)->firstOrFail();
+        $subs->token = null;
+        $subs->save();
+        return redirect('/')
+            ->with('notification_newsletter', 'Your E-Mail was verificated!');
     }
 
 }
