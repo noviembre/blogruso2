@@ -21,7 +21,14 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Lista de Usuarios</h3>
+                    <h3 class="box-title">Lista de Usuarios</h3><br>
+
+                    Posts Today:
+                    @if(Auth::user()->postsToday->count() >= 1)
+                   <b>{{Auth::user()->postsToday->count()}}</b>
+                    @else
+                        0
+                    @endif
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
