@@ -23,7 +23,7 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <h3 class="box-title">Todays Comments
-                        (<b>{{ $allComments->where('created_at', '>=', \Carbon\Carbon::today())->count() }}</b>)
+                        (<b>{{ $todayComments }}</b>)
                     </h3>
                     <h4>
                         All Comments  ({{$allComments->count()}})
