@@ -22,6 +22,13 @@
             <div class="box">
                 <!-- /.box-header -->
                 <div class="box-body">
+                    <h3 class="box-title">Todays Comments
+                        (<b>{{ $allComments->where('created_at', '>=', \Carbon\Carbon::today())->count() }}</b>)
+                    </h3>
+                    <h4>
+                        All Comments  ({{$allComments->count()}})
+                    </h4>
+
                     <div class="form-group">
                         <a href="#" class="btn btn-success">Create</a>
                     </div>
@@ -37,7 +44,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($comments as $comment)
+                        @foreach($allComments as $comment)
                             <tr>
                                 <td>{{$comment->id}}</td>
                                 <td>{{$comment->text}}
