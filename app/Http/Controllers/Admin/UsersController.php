@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\UserUpdate;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 
@@ -51,23 +54,35 @@ class UsersController extends Controller
         return view('admin.users.edit', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UserUpdate $request)
     {
-        $user = User::find($id);
+        $user = Auth::user();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->save();
 
-        $this->validate($request, [
-            'name'  =>  'required',
-            'email' =>  [
-                'required',
-                'email',
-                Rule::unique('users')->ignore($user->id),
-            ],
-            'avatar'    =>  'nullable|image'
-        ]);
 
-        $user->edit($request->all());
-        $user->generatePassword($request->get('password'));
-        $user->uploadAvatar($request->file('avatar'));
+        if (!empty($request['password'])){
+
+            if (!(Hash::check($request['password'], Auth::user()->password))){
+                return redirect()->back()->with('error','Your Current Password does not match with the pass you provide');
+            }
+
+            if (strcmp($request['password'], $request['new_password']) == 0){
+                return redirect()->back()->with('error','New pass cannot be same as your current password');
+
+            }
+
+            $validation = $request->validate([
+                'password'  =>  'required',
+                'new_password'  =>  'required|string|min:5'
+            ]);
+
+            $user->password = bcrypt($request['new_password']);
+            $user->save();
+            return redirect()->route('users.index');
+
+        }
 
         return redirect()->route('users.index');
     }

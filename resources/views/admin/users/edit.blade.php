@@ -13,6 +13,16 @@
 
         <!-- Main content -->
         <section class="content">
+            <div class="box">
+                <div class="box-header with-border">
+                    @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                     @endif
+                </div>
+
+            </div>
 
         {{Form::open([
             'route'	=>	['users.update', $user->id],
@@ -22,9 +32,7 @@
 
         <!-- Default box -->
             <div class="box">
-                <div class="box-header with-border">
-                    @include('admin.errors')
-                </div>
+
 
                 <div class="box-body">
                     <div class="col-md-6">
@@ -34,14 +42,41 @@
                             <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{{$user->name}}">
                         </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">E-mail</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" name="email" value="{{$user->email}}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">E-mail</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" value="{{$user->email}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Password</label>
+                                    <input  name="password" type="password" class="form-control" id="exampleInputEmail1">
+                                </div>
+                            </div>
+
+
                         </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputEmail1" name="password">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">New Password</label>
+                                    <input name="new_password"  type="password" class="form-control" id="exampleInputEmail1">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">confirm Password</label>
+                                    <input name="new_password_confirmation"  type="password" class="form-control" id="exampleInputEmail1">
+                                </div>
+                            </div>
+
+
                         </div>
 
                         <div class="form-group">
