@@ -11,6 +11,13 @@ use App\Http\Controllers\Controller;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkRole:is_admin');
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $posts = Post::all();
