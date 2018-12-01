@@ -56,8 +56,8 @@
                                     <a href="{{route('posts.edit', $post->id)}}" class="fa fa-pencil"></a>
 
                                     {{Form::open(['route'=>['posts.destroy', $post->id], 'method'=>'delete'])}}
-                                    <button onclick="return confirm('are you sure?')" type="submit" class="delete">
-                                        <i class="fa fa-remove"></i>
+                                    <button data-toggle="modal" data-target="deletePostmodal-{{$post->id}}" class="delete" type="button">
+                                       Delete
                                     </button>
 
                                     {{Form::close()}}
@@ -79,4 +79,37 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+
+
+    @foreach($posts as $post)
+
+        <!-- Modal -->
+        <div class="modal fade" id="deletePostmodal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Estas Seguro que quieres Eliminar
+                            {{ $post->title }}
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            No, Cancelar
+                        </button>
+                        {{Form::open(['route'=>['posts.destroy', $post->id], 'method'=>'delete'])}}
+                        <button type="submit" class="btn btn-primary">
+                            Si, Eliminar
+                        </button>
+                        {{Form::close()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection
